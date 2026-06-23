@@ -27,6 +27,18 @@ Syncaura connects multi-role interfaces (Admin, Co-Admin, and User) with global 
 | **Notifications** | React Toastify |
 | **Form Validation** | React Hook Form |
 
+## API Endpoints
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Authenticate user |
+| POST | `/api/auth/logout` | Logout user |
+| POST | `/api/auth/refresh` | Refresh access token |
+| GET | `/api/auth/me` | Get current user profile |
+
+---
+
 ## System Architecture
 
 ```
@@ -48,7 +60,7 @@ Syncaura connects multi-role interfaces (Admin, Co-Admin, and User) with global 
 │             │ HTTP Requests / WebSockets                               │
 │             ▼                                                          │
 │  ┌───────────────────────┐                   ┌──────────────────────┐  │
-│  │  Axios Client Wrapper │                   │  Local Storage       │  │
+│  │  Axios Client Wrapper │                   │  localStorage        │  │
 │  │ (Request/Response)    │<─────────────────>│  (accessToken,       │  │
 │  │  Interceptors         │   Read/Write JWT  │   refreshToken)      │  │
 │  └──────────┬────────────┘                   └──────────────────────┘  │
